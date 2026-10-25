@@ -1,5 +1,6 @@
 
 import { useState } from "react";
+import "./App.css";
 
 function App() {
   const [color, setColor] = useState("#3498db");
@@ -50,10 +51,10 @@ function removecol() {
 
       <h1>{color}</h1>
 
-      <div>
+      <div className="button-group">
         <button onClick={changeColor}>Generate Random Color</button>
 
-        <button onClick={copyColor} style={{ marginLeft: "10px" }}>
+        <button onClick={copyColor}>
           Copy HEX
         </button>
       </div>
@@ -70,10 +71,10 @@ function removecol() {
             }}
           >
            
-             <button backgroundColor=" {paletteColor}" onClick={copyColor} style={{ marginLeft: "10px" }}>
-          Copy HEX
-        </button>
-        <button onClick={removecol}>Delete</button>
+            <div className="button-group">
+              <button onClick={copyColor}>Copy HEX</button>
+              <button onClick={removecol}>Delete</button>
+            </div>
           </div>
         ))}
       </div>
