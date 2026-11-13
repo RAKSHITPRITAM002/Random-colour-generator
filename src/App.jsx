@@ -18,9 +18,9 @@ function App() {
     );
   }
 
-  async function copyColor() {
+  async function copyColor(colorToCopy) {
     try {
-      await navigator.clipboard.writeText(colors);
+      await navigator.clipboard.writeText(colorToCopy);
       setMessage("Color copied!");
     } catch {
       setMessage("Could not copy. Try again.");
@@ -54,7 +54,7 @@ function removecol() {
       <div className="button-group">
         <button onClick={changeColor}>Generate Random Color</button>
 
-        <button onClick={copyColor}>
+        <button onClick={() => copyColor(color)}>
           Copy HEX
         </button>
       </div>
@@ -72,7 +72,7 @@ function removecol() {
           >
            
             <div className="button-group">
-              <button onClick={copyColor}>Copy HEX</button>
+              <button onClick={() => copyColor(paletteColor)}>Copy HEX</button>
               <button onClick={removecol}>Delete</button>
             </div>
           </div>
